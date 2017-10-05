@@ -14,7 +14,7 @@ void setup() {
   {
     pinMode(led[i], OUTPUT);
   }
-  pinMode(pot,OUTPUT);
+  pinMode(pot,INPUT);
 }
 
 void loop()
