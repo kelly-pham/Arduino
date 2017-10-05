@@ -18,7 +18,7 @@ void setup()
     pinMode(led[i], OUTPUT);
     digitalWrite(led[i], LOW);
   }
-  pinMode(pot, OUTPUT);
+  pinMode(pot, INPUT);
   Serial.begin(9600);
 
 }
