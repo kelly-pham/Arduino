@@ -1,0 +1,49 @@
+Part 1:
+
+const int LDR =0;
+int led =3;
+
+void setup()
+{
+  pinMode(led,OUTPUT);
+  pinMode(LDR,OUTPUT);
+  }
+
+void loop()
+{
+  int value=analogRead(LDR); // read value of LDR
+  if (value < 300)
+    {
+      digitalWrite(led,HIGH);
+      }
+   else
+      {
+        digitalWrite(led,LOW);
+        }
+  }
+  Part 2:
+  const int LDR =0;
+int led =3;
+
+
+void setup()
+{
+  pinMode(led,OUTPUT);
+  pinMode(LDR,INPUT);
+  }
+
+void loop()
+{
+  int value=analogRead(LDR); // read value of LDR
+  if (value < 300 && value > 0 || value >=300 && value < 500)
+    {
+      digitalWrite(led,HIGH);
+      }
+   else 
+      {
+        digitalWrite(led,LOW);
+        }
+  }
+  
+
+  
