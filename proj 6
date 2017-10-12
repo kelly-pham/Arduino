@@ -46,4 +46,148 @@ void loop()
   }
   
 
+  Part 3:
   
+  const int LDR = 0;
+int BLED = 8;
+int GLED = 9;
+int RLED = 10;
+
+
+void setup()
+{
+  pinMode(BLED, OUTPUT);
+  pinMode(RLED, OUTPUT);
+  pinMode(GLED, OUTPUT);
+  pinMode(LDR, INPUT);
+}
+
+void loop()
+{
+  int value = analogRead(LDR); // read value of LDR
+  if (value < 100)
+  {
+    analogWrite(RLED, 85);
+    analogWrite(GLED, 85);
+    analogWrite(BLED, 85);
+
+  }
+  else if (value >= 100 && value < 250)
+  {
+    digitalWrite(BLED, HIGH);
+    digitalWrite(RLED, LOW);
+    digitalWrite(GLED, LOW);
+  }
+  else if (value >= 250 && value <= 500)
+  {
+    analogWrite(RLED, 255);
+    analogWrite(GLED, 255);
+    analogWrite(BLED, 0);
+  }
+  else if (value > 500 && value < 800)
+  {
+    digitalWrite(BLED, LOW);
+    digitalWrite(RLED, LOW);
+    digitalWrite(GLED, HIGH);
+  }
+  else
+  {
+    digitalWrite(BLED, LOW);
+    digitalWrite(RLED, HIGH);
+    digitalWrite(GLED, LOW);
+  }
+}
+
+
+Part 4:
+const int fsensor = 0;
+int BLED = 8;
+int GLED = 9;
+int RLED = 10;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(BLED, OUTPUT);
+  pinMode(RLED, OUTPUT);
+  pinMode(GLED, OUTPUT);
+  pinMode(fsensor, INPUT);
+}
+
+void loop()
+{
+  int value = analogRead(fsensor); // read value of force sensor 
+  Serial.println(value);
+ 
+  
+  if (value >= 100 && value < 350)
+  {
+    digitalWrite(BLED, HIGH);
+    digitalWrite(RLED, LOW);
+    digitalWrite(GLED, LOW);
+  }
+  else if (value >= 350 && value <= 800)
+  {
+    digitalWrite(BLED, LOW);
+    digitalWrite(RLED, LOW);
+    digitalWrite(GLED, HIGH);
+  }
+  else 
+  {
+    digitalWrite(BLED, LOW);
+    digitalWrite(RLED, HIGH);
+    digitalWrite(GLED, LOW);
+  }
+  
+}
+
+Part 5:
+const int fsensor = 0;
+int BLED = 8;
+int GLED = 9;
+int RLED = 10;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(BLED, OUTPUT);
+  pinMode(RLED, OUTPUT);
+  pinMode(GLED, OUTPUT);
+  pinMode(fsensor, INPUT);
+}
+
+void loop()
+{
+
+  for (int count = 0; count < 10; count += 1)
+  {
+    int value = analogRead(fsensor); // read value of force sensor
+    value += value;
+    Serial.println(value);
+
+  }
+  value1 = value / 10;
+
+  if (value1 >= 100 && value1 < 350)
+  {
+    digitalWrite(BLED, HIGH);
+    digitalWrite(RLED, LOW);
+    digitalWrite(GLED, LOW);
+  }
+  else if (value1 >= 350 && value1 <= 800)
+  {
+    digitalWrite(BLED, LOW);
+    digitalWrite(RLED, LOW);
+    digitalWrite(GLED, HIGH);
+  }
+  else
+  {
+    digitalWrite(BLED, LOW);
+    digitalWrite(RLED, HIGH);
+    digitalWrite(GLED, LOW);
+  }
+
+}
+
