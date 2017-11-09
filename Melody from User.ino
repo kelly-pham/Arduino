@@ -98,7 +98,7 @@ void checkButton(int button1)
       Serial.println(count1);
       if (count1 > 3)
       {
-        count1 = 1;
+        count1 = 0;
       }
       delay(50);
     }
